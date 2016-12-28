@@ -6,12 +6,11 @@ module.exports = {
     path: __dirname + '/js',
     filename: 'app.bundle.js'
   },
-  target: 'web',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      use: ['babel-loader']
     }]
   },
   plugins: [
@@ -22,7 +21,6 @@ module.exports = {
         warnings: false
       },
       minimize: true
-    }),
-    new webpack.optimize.DedupePlugin()
+    })
   ]
 };

@@ -6,20 +6,15 @@ module.exports = {
     path: __dirname + '/js',
     filename: 'app.bundle.js'
   },
-  target: 'web',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      use: ['babel-loader']
     }]
   },
   externals: {
     '../physics/index.js': 'var false',
     './physics/index.js': 'var false'
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.DedupePlugin()
-  ]
+  }
 };
