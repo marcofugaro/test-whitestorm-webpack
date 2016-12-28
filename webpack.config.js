@@ -19,8 +19,7 @@ module.exports = {
       compress: {
         hoist_funs: false, // Turn this off to prevent errors with Ammo.js
         warnings: false
-      },
-      minimize: true
+      }
     })
   ]
 };
